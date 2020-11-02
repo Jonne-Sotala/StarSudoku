@@ -1,0 +1,95 @@
+commit 97cd8e722f9861c59365b32701258dc3c68ba40b
+Author: Jonne Sotala <jonne.sotala@gmail.com>
+Date:   Mon Nov 2 22:46:45 2020 +0200
+
+    tiedosto file1 poistettu ja file2 uudelleen nimetty
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit b9379dc98c87c000cc95533ece31fb1103f4726c
+Author: Jonne Sotala <jonne.sotala@gmail.com>
+Date:   Mon Nov 2 22:43:22 2020 +0200
+
+    hakemisto tiedostoja lisatty tiedostoineen
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 9cd18e568d56c7cdb896a3b8d10298f6479485b6
+Author: Jonne Sotala <jonne.sotala@gmail.com>
+Date:   Mon Nov 2 22:33:10 2020 +0200
+
+    eka ja kolmas muokattu
+
+ eka.txt    | 2 +-
+ kolmas.txt | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+commit 07f384ae5c250f26db645b6dc85c44093ceccd28
+Author: Jonne Sotala <jonne.sotala@gmail.com>
+Date:   Mon Nov 2 22:31:39 2020 +0200
+
+    tiedosto nimetty ekaksi
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 3473f53f0fa9f679541bd3284439ddfd45630b11
+Author: Jonne Sotala <jonne.sotala@gmail.com>
+Date:   Mon Nov 2 22:30:37 2020 +0200
+
+    toinen poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit ee0dddb9601bc024194693ad03bc69fe5ae9a36f
+Author: Jonne Sotala <jonne.sotala@gmail.com>
+Date:   Mon Nov 2 22:28:42 2020 +0200
+
+    stuff hakemisto lisatty tiedostoineen
+
+ stuff/stuff1.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 7d3b7c70d3225401992c6557e0ba32e5db41419c
+Author: Jonne Sotala <jonne.sotala@gmail.com>
+Date:   Mon Nov 2 22:26:59 2020 +0200
+
+    kolmas ja toinen muokattu
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 79d7d6ad7752b853845a2596fce05388e6120967
+Author: Jonne Sotala <jonne.sotala@gmail.com>
+Date:   Mon Nov 2 22:25:53 2020 +0200
+
+    kolmas lisatty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f05b916bf5bc4bcfbc86b48979c31dd7055b435d
+Author: Jonne Sotala <jonne.sotala@gmail.com>
+Date:   Mon Nov 2 22:23:06 2020 +0200
+
+    muutos ja lisays
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit b3b056c699fe16a641088ea422ed045d9469d392
+Author: Jonne Sotala <jonne.sotala@gmail.com>
+Date:   Mon Nov 2 22:14:02 2020 +0200
+
+    tiedosto.txtl luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
