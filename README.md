@@ -1,6 +1,13 @@
 # Ohjelmistotekniikka :man_technologist:
 
-## Tehtävät
+## Harjoitustyö
+
+### Dokumentaatio
+
+- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
+- [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
+
+## Laskaritehtävät
 
 ### Viikko 1
 
