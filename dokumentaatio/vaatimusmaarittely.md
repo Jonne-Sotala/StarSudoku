@@ -27,4 +27,4 @@ Sovelluksella tulee olemaan vain yhdenlaisen käyttäjätyypin käyttäjiä, jot
 ## Jatkokehitysideoita
 
 - Ratkaisija, jolta voi kysya neuvoa tai pyytää sen ratkaisemaan sudokun loppuun
-- Sovellukseen voisi lisäta leaderboard ominaisuuden, josta näkisi kuinka hyvin eri käyttäjät ovat ratkaisseet sudokuja
+- Sovellukseen voisi lisätä leaderboard ominaisuuden, josta näkisi kuinka hyvin eri käyttäjät ovat ratkaisseet sudokuja
