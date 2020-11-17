@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[scripts]
+start = "python src/main.py"
+test = "pytest"
+coverage = "coverage run --branch -m pytest"
+coverage-report = "coverage html"
+
+[packages]
+pygame = "*"
+pytest = "*"
+coverage = "*"
+
+[dev-packages]
+autopep8 = "*"
