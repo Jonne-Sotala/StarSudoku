@@ -1,24 +1,49 @@
-# Ohjelmistotekniikka :man_technologist:
+# Sudoku sovellus
 
-## Harjoitustyö
-
-### Dokumentaatio
+## Dokumentaatio
 
 - [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 
-## Laskaritehtävät
+## Asennus
 
-### Viikko 1
+Sovellus on tehty kayttaen Python-versiota `3.8.6`. Muiden versioiden toiminnasta ei ole takuuta. Huomaa, etta joissakin koneissa voit joutua korvaamaan komennon `python` komennolla `python3`.
 
-[komentorivi.txt](https://github.com/Jonne-Sotala/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
+1. Asenna riippuvuudet
+```bash
+python -m pipenv install
+```
+2. Kaynnista sovellus komennolla:
+```bash
+python -m pipenv run start
+```
 
-[gitlog.txt](https://github.com/Jonne-Sotala/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
+## Komentorivitoiminnot
 
-### Viikko 2
+### Ohjelman suorittaminen
 
-[Maksukortti projekti](https://github.com/Jonne-Sotala/ot-harjoitustyo/tree/main/laskarit/viikko2/maksukortti)
+Ohjelman voi suorittaa komennolla:
 
-[Unicafe projekti](https://github.com/Jonne-Sotala/ot-harjoitustyo/tree/main/laskarit/viikko2/unicafe)
+```bash
+python -m pipenv run start
+```
 
-[Testikattavuus kuvankaappaus](https://github.com/Jonne-Sotala/ot-harjoitustyo/blob/main/laskarit/viikko2/coverage.png)
+### Testaus
+
+Testit voi suorittaa komennolla:
+
+```bash
+python -m pipenv run test
+```
+
+### Testikattavuus
+
+Testikattavuudet voi luoda komennoilla:
+
+```bash
+python -m pipenv run coverage
+```
+```bash
+python -m pipenv run coverage-report
+```
+Raportti on sitten generoitunut htmlcov-hakemistoon ja sen voi katsoa avaamalla index.html tiedoston selaimella. 
