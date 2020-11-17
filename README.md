@@ -1,5 +1,9 @@
 # Sudoku sovellus
 
+## Projektin tila
+
+Tällä hetkellä projektiin on luotu vasta peruskäyttöliittymä ja muutamia testeja luotu kokeilu mielessä. Tulevina viikkoina projektiin tullaan lisäämään ominaisuuksia, jotka ollaan kirjattu vaatimusmäärittelydokumenttiin. 
+
 ## Dokumentaatio
 
 - [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
@@ -7,13 +11,13 @@
 
 ## Asennus
 
-Sovellus on tehty kayttaen Python-versiota `3.8.6`. Muiden versioiden toiminnasta ei ole takuuta. Huomaa, etta joissakin koneissa voit joutua korvaamaan komennon `python` komennolla `python3`.
+Sovellus on tehty käyttäen Python-versiota `3.8.6`. Muiden versioiden toiminnasta ei ole takuuta. Huomaa, että joissakin koneissa voit joutua korvaamaan komennon `python` komennolla `python3`.
 
 1. Asenna riippuvuudet
 ```bash
 python -m pipenv install
 ```
-2. Kaynnista sovellus komennolla:
+2. Käynnista sovellus komennolla:
 ```bash
 python -m pipenv run start
 ```
