@@ -2,7 +2,7 @@
 
 ## Projektin tila
 
-Tällä hetkellä projektiin on luotu vasta peruskäyttöliittymä ja muutamia testeja luotu kokeilu mielessä. Tulevina viikkoina projektiin tullaan lisäämään ominaisuuksia, jotka ollaan kirjattu vaatimusmäärittelydokumenttiin. 
+Tällä hetkellä projektiin on luotu vasta peruskäyttöliittymä ja muutamia testeja luotu kokeilu mielessä. Pitää selvittää, että miten graafista liittymää voisi testata järkevästi. Tulevina viikkoina projektiin tullaan lisäämään ominaisuuksia, jotka ollaan kirjattu vaatimusmäärittelydokumenttiin. 
 
 ## Käyttöohje
 
