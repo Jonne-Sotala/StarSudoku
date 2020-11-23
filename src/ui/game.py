@@ -1,12 +1,11 @@
 import pygame
-from menu import MainMenu, DifficultyMenu, CreditsMenu
+from ui.menu import MainMenu, DifficultyMenu, CreditsMenu
 
 
 class SudokuGame:
     def __init__(self):
         # Initialize pygame
         pygame.init()
-
         # State variables
         self.running = True
         self.solving = False
@@ -32,7 +31,7 @@ class SudokuGame:
         pygame.display.set_caption(caption)
 
         # Font
-        self.font_name = 'resources/8-BIT WONDER.TTF'
+        self.font_name = 'resources/fonts/8-BIT WONDER.TTF'
 
         # Menus
         self.main_menu = MainMenu(self)

@@ -1,4 +1,4 @@
-from game import SudokuGame
+from ui.game import SudokuGame
 
 game = SudokuGame()
 

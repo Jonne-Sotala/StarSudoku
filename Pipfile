@@ -8,11 +8,13 @@ start = "python src/main.py"
 test = "pytest"
 coverage = "coverage run --branch -m pytest"
 coverage-report = "coverage html"
+lint = "pylint src"
 
 [packages]
 pygame = "*"
 pytest = "*"
 coverage = "*"
+pylint = "*"
 
 [dev-packages]
 autopep8 = "*"

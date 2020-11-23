@@ -15,7 +15,7 @@ class Menu():
         self.game.draw_text('*', 15, self.cursor_rect.x, self.cursor_rect.y)
 
     def draw_logo(self):
-        image = pygame.image.load("resources/logo.png")
+        image = pygame.image.load("resources/images/logo.png")
         self.game.display.blit(image, (self.logo_x, self.logo_y))
 
     def blit_screen(self):

@@ -1,6 +1,6 @@
 import unittest
 import pygame
-from game import SudokuGame
+from ui.game import SudokuGame
 
 
 class TestSudokuGame(unittest.TestCase):

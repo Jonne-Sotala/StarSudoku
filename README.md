@@ -55,3 +55,11 @@ python -m pipenv run coverage
 python -m pipenv run coverage-report
 ```
 Raportti on sitten generoitunut htmlcov-hakemistoon ja sen voi katsoa avaamalla index.html tiedoston selaimella. 
+
+### Laatutarkastus
+
+Laatutarkastukset voidaan suorittaa komennolla:
+
+```bash
+python -m pipenv run lint
+```
