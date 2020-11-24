@@ -18,9 +18,10 @@ Sovelluksella tulee olemaan vain yhdenlaisen käyttäjätyypin käyttäjiä, jot
 
 ## Perusversion toiminnallisuus
 
-- Sovelluksessa on erilaisia sudokuongelmia, joita voi ratkaista
 - Käyttäjän pitää kirjautua sovellukseen tunnuksellaan
-- Käyttäjä voi ratkaista sovelluksen sudokuita
+- Sovelluksessa on valikot, joiden välillä voi liikkua (TEHTY)
+- Käyttäjä voi ratkaista sovelluksen sudokuita (TEHTY)
+- Sovelluksessa on erilaisia sudokuongelmia, joita voi ratkaista
 - Sovellus pisteyttää käyttäjän ratkaisut
 - Sovellus pitää kirjaa käyttäjien ratkaisemista sudokuista
 
