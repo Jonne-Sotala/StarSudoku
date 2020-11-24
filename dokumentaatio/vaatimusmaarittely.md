@@ -11,9 +11,9 @@ Sovelluksella tulee olemaan vain yhdenlaisen käyttäjätyypin käyttäjiä, jot
 ## Käyttöliittymä
 
 - Sovelluksen avautuessa on kirjautumisnäkymä
-- Kirjauduttuaan käyttäjä näkee valikon, jossa on napit joilla voi menna käyttäjän historiaan sekä napit joilla pääsee eri vaikeusasteisten sudokujen listaan (helpot, keskivaikeat, vaikeat, mahdottomat jne.)
+- Kirjauduttuaan käyttäjä näkee valikon, jossa on napit joilla voi menna käyttäjän historiaan sekä napit joilla pääsee eri vaikeusasteisten sudokujen listaan (helpot, keskivaikeat, vaikeat, mahdottomat jne.) (TEHTY)
 - Sudokujen lista näkymassa voi valita sudokun ja alkaa ratkaisemaan sitä
-- Ratkaisunäkymässa näkyy sudokulauta, siellä on nappi josta voi pyytää ratkaisijalta apua ja voi myös palauttaa oman ratkaisunsa. Siellä on myös kohta mistä nakee kuinka paljon aikaa on kulunut
+- Ratkaisunäkymässa näkyy sudokulauta, siellä on nappi josta voi pyytää ratkaisijalta apua ja voi myös palauttaa oman ratkaisunsa. Siellä on myös kohta mistä nakee kuinka paljon aikaa on kulunut (TEHTY OSITTAIN)
 - Ratkaisun palautuksen jälkeen tulisi pisteytysnäkymä, jossa on myös sitten linkit takaisin valikkoihin
 
 ## Perusversion toiminnallisuus
