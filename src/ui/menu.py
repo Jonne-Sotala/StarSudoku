@@ -1,7 +1,7 @@
 import pygame
 
 
-class Menu():
+class Menu:
     def __init__(self, game):
         self.game = game
         self.MID_W = self.game.WIDTH / 2
@@ -148,7 +148,9 @@ class DifficultyMenu(Menu):
                 self.state = 'Medium'
         elif self.game.START_KEY:
             # TO-DO: Go to the sudoku puzzle list
-            pass
+            # Currently just opens a predetermined sudoku puzzle
+            self.run_display = False
+            self.game.solving = True
 
 
 class CreditsMenu(Menu):
