@@ -2,11 +2,11 @@
 
 ## Projektin tila
 
-Tällä hetkellä projektiin on luotu vasta peruskäyttöliittymä ja muutamia testeja luotu kokeilu mielessä. Pitää selvittää, että miten graafista liittymää voisi testata järkevästi. Tulevina viikkoina projektiin tullaan lisäämään ominaisuuksia, jotka ollaan kirjattu vaatimusmäärittelydokumenttiin. 
+Tällä hetkellä projektiin on luotu vasta peruskäyttöliittymä ja ohjelmassa pääsee ratkaisemaan yhtä sudokua. Vielä kuitenkaan vastausta ei pysty palauttamaan. 
 
 ## Käyttöohje
 
-Sovelluksessa on vasta olemassa perusvalikot. Niiden välillä voi liikkua nuolinäppäimillä. Alavalikkoon pääsee painamalla ENTER-näppäintä ja takaisin päävalikkoon pääsee painamalla BACKSPACE-näppäintä. 
+Sovelluksen valikoiden välillä voi liikkua nuolinäppäimillä. Alavalikkoon pääsee painamalla ENTER-näppäintä ja takaisin päävalikkoon pääsee painamalla BACKSPACE-näppäintä. Sudokun ratkaisu tilassa ohjeet näkyvät oikealla puolella ikkunaa. 
 
 ## Dokumentaatio
 
