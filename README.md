@@ -68,3 +68,7 @@ Laatutarkastukset voidaan suorittaa komennolla:
 ```bash
 python -m pipenv run lint
 ```
+
+## Releases
+
+[Viikko 5](https://github.com/Jonne-Sotala/ot-harjoitustyo/releases/tag/viikko5)
