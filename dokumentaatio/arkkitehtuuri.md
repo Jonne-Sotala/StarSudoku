@@ -8,4 +8,4 @@ Sovelluksen luokkakaavio:
 
 Käyttäjän luomisen ja kirjautumisen sekvenssikaavio:
 
-![Sekvenssikaavio](.kuvat/kirjautuminen.png)
+![Sekvenssikaavio](./kuvat/kirjautuminen.png)
