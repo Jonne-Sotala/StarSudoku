@@ -5,6 +5,7 @@ name = "pypi"
 
 [scripts]
 start = "python src/main.py"
+build = "python src/build.py"
 test = "pytest"
 coverage = "coverage run --branch -m pytest"
 coverage-report = "coverage html"

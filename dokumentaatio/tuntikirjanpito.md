@@ -7,4 +7,5 @@
 |  17.11. |  6h  |   projektin käyttöliittymä     |
 |  23.11. |  1h  |  pylint ja rakennetta muokattu |
 |  24.11. |  4h  |   sudokun ratkaisu ominaisuus  |
+|  02.12. |  5h  |  kirjautumisominaisuus lisatty |
 

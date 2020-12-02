@@ -1,7 +1,10 @@
 import pygame
-from ui.menu import MainMenu, DifficultyMenu, CreditsMenu
+from entities.user import User
+from ui.menu import LoginMenu, MainMenu, DifficultyMenu, CreditsMenu
+from ui.popup import CreateUserPopUp
 from entities.sudoku import Sudoku
-from sudoku_solver import SudokuSolver
+from services.sudoku_solver import SudokuSolver
+from services.user_service import UserService
 
 
 class SudokuGame:
@@ -22,6 +25,8 @@ class SudokuGame:
         self.DOWN_KEY = False
         self.LEFT_KEY = False
         self.RIGHT_KEY = False
+        self.YES_KEY = False
+        self.NO_KEY = False
         self.NUM_1_KEY = False
         self.NUM_2_KEY = False
         self.NUM_3_KEY = False
@@ -55,17 +60,25 @@ class SudokuGame:
         self.menu_font = 'resources/fonts/8-BIT WONDER.TTF'
         self.sudoku_font = 'resources/fonts/comicsans.ttf'
 
-        # Menus
-        self.main_menu = MainMenu(self)
-        self.difficulty_menu = DifficultyMenu(self)
-        self.credits_menu = CreditsMenu(self)
-        self.current_menu = self.main_menu
-
-        # Current sudoku puzzle and solver
+        # Predetermined Sudoku (TEMPORARY)
         self.sudoku = Sudoku('800930002009000040702100960200000090060000070070006005027008406030000500500062008',
                              '846937152319625847752184963285713694463859271971246385127598436638471529594362718',
                              'easy')
+
+        # Services
+        self.users = UserService()
         self.solver = SudokuSolver(self.sudoku)
+
+        # Menus
+        self.login_menu = LoginMenu(self)
+        self.create_user_menu = CreateUserPopUp(self, "Enter a username")
+        self.main_menu = MainMenu(self)
+        self.difficulty_menu = DifficultyMenu(self)
+        self.credits_menu = CreditsMenu(self)
+        self.current_menu = self.login_menu
+
+        # Confirm for popups
+        self.confirm = False
 
     def solving_sudoku(self):
         while self.solving:
@@ -168,6 +181,10 @@ class SudokuGame:
                     self.LEFT_KEY = True
                 if event.key == pygame.K_RIGHT or event.key == pygame.K_l:
                     self.RIGHT_KEY = True
+                if event.key == pygame.K_y:
+                    self.YES_KEY = True
+                if event.key == pygame.K_n:
+                    self.NO_KEY = True
                 if event.key == pygame.K_1:
                     self.NUM_1_KEY = True
                 if event.key == pygame.K_2:
@@ -196,6 +213,8 @@ class SudokuGame:
         self.DOWN_KEY = False
         self.LEFT_KEY = False
         self.RIGHT_KEY = False
+        self.YES_KEY = False
+        self.NO_KEY = False
         self.NUM_1_KEY = False
         self.NUM_2_KEY = False
         self.NUM_3_KEY = False
@@ -207,11 +226,14 @@ class SudokuGame:
         self.NUM_9_KEY = False
         self.REMOVE_KEY = False
 
-    def draw_text(self, text, size, x, y):
+    def draw_text(self, text, size, x, y, align='center'):
         font = pygame.font.Font(self.menu_font, size)
         text_surface = font.render(text, True, self.BLACK)
         text_rect = text_surface.get_rect()
-        text_rect.center = (x, y)
+        if align == 'center':
+            text_rect.center = (x, y)
+        elif align == 'topleft':
+            text_rect.topleft = (x, y)
         self.display.blit(text_surface, text_rect)
 
     def draw_sudoku_grid(self):

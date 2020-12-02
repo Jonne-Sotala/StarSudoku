@@ -22,7 +22,11 @@ Sovellus on tehty käyttäen Python-versiota `3.8.6`. Muiden versioiden toiminna
 ```bash
 python -m pipenv install
 ```
-2. Käynnista sovellus komennolla:
+2. Alusta sovellus
+```bash
+python -m pipenv run build
+```
+3. Käynnista sovellus komennolla:
 ```bash
 python -m pipenv run start
 ```

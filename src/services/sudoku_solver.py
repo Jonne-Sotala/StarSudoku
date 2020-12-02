@@ -13,14 +13,16 @@ class SudokuSolver:
         return self.state[self.current_row][self.current_col]
 
     def change_value_at(self, row, col, value):
-        self.state[row][col] = value
+        if not self.is_given(row, col):
+            self.state[row][col] = value
 
     def change_current_value(self, value):
         if not self.is_given(self.current_row, self.current_col):
             self.state[self.current_row][self.current_col] = value
 
     def remove_value_at(self, row, col):
-        self.state[row][col] = '0'
+        if not self.is_given(row, col):
+            self.state[row][col] = '0'
 
     def remove_current_value(self):
         if not self.is_given(self.current_row, self.current_col):
@@ -49,6 +51,3 @@ class SudokuSolver:
         for i in range(9):
             sudoku.append(list(string[9*i:9*i+9]))
         return sudoku
-
-    def __repr__(self):
-        return '\n'.join([' '.join(row) for row in self.state])
