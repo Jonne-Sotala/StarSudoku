@@ -2,7 +2,7 @@
 
 ## Projektin tila
 
-Tällä hetkellä projektiin on luotu vasta peruskäyttöliittymä ja ohjelmassa pääsee ratkaisemaan yhtä sudokua. Vielä kuitenkaan vastausta ei pysty palauttamaan. 
+Tällä hetkellä sovelluksessa on kirjautumisnäkymä, jossa voi kirjautua, luoda käyttäjän ja poistaa käyttäjiä. Lisäksi on valikot, joita navigoimalla pääsee ratkaisemaan yhtä sudokua. Vielä kuitenkaan vastausta ei pysty palauttamaan ja sudoku on ennaltamäärätty ja sitä ei pysty vaihtamaan. 
 
 ## Käyttöohje
 
@@ -68,3 +68,7 @@ Laatutarkastukset voidaan suorittaa komennolla:
 ```bash
 python -m pipenv run lint
 ```
+
+## Releases
+
+[Viikko 5](https://github.com/Jonne-Sotala/ot-harjoitustyo/releases/tag/viikko5)
