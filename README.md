@@ -4,13 +4,10 @@
 
 Tällä hetkellä sovelluksessa on kirjautumisnäkymä, jossa voi kirjautua, luoda käyttäjän ja poistaa käyttäjiä. Lisäksi on valikot, joita navigoimalla pääsee ratkaisemaan yhtä sudokua. Vielä kuitenkaan vastausta ei pysty palauttamaan ja sudoku on ennaltamäärätty ja sitä ei pysty vaihtamaan. 
 
-## Käyttöohje
-
-Sovelluksen valikoiden välillä voi liikkua nuolinäppäimillä. Alavalikkoon pääsee painamalla ENTER-näppäintä ja takaisin päävalikkoon pääsee painamalla BACKSPACE-näppäintä. Sudokun ratkaisu tilassa ohjeet näkyvät oikealla puolella ikkunaa. 
-
 ## Dokumentaatio
 
 - [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
+- [Käyttöohje](./dokumentaatio/kayttoohje.md)
 - [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 
