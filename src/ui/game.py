@@ -1,8 +1,6 @@
 import pygame
-from entities.user import User
-from ui.menu import LoginMenu, MainMenu, DifficultyMenu, CreditsMenu
+from ui.menu import LoginMenu, MainMenu, DifficultyMenu, SudokuMenu, CreditsMenu
 from ui.popup import CreateUserPopUp
-from entities.sudoku import Sudoku
 from services.sudoku_solver import SudokuSolver
 from services.user_service import UserService
 
@@ -60,14 +58,9 @@ class SudokuGame:
         self.menu_font = 'resources/fonts/8-BIT WONDER.TTF'
         self.sudoku_font = 'resources/fonts/comicsans.ttf'
 
-        # Predetermined Sudoku (TEMPORARY)
-        self.sudoku = Sudoku('800930002009000040702100960200000090060000070070006005027008406030000500500062008',
-                             '846937152319625847752184963285713694463859271971246385127598436638471529594362718',
-                             'easy')
-
         # Services
         self.users = UserService()
-        self.solver = SudokuSolver(self.sudoku)
+        self.solver = SudokuSolver()
 
         # Menus
         self.login_menu = LoginMenu(self)
@@ -90,17 +83,7 @@ class SudokuGame:
             self.display.fill(self.BEIGE)
             self.draw_sudoku_grid()
             self.draw_sudoku_boxes()
-            self.draw_text("COMMANDS", 20, (self.HEIGHT+self.WIDTH)/2, 18)
-            self.draw_text("MOVE", 15, (self.HEIGHT+self.WIDTH)/2, 70)
-            self.draw_text("ARROW KEYS", 15, (self.HEIGHT+self.WIDTH)/2, 100)
-            self.draw_text("INSERT MODE", 15, (self.HEIGHT+self.WIDTH)/2, 150)
-            self.draw_text("ENTER", 15, (self.HEIGHT+self.WIDTH)/2, 180)
-            self.draw_text("REMOVE NUM", 15, (self.HEIGHT+self.WIDTH)/2, 230)
-            self.draw_text("DEL", 15, (self.HEIGHT+self.WIDTH)/2, 260)
-            self.draw_text("SUBMIT", 15, (self.HEIGHT+self.WIDTH)/2, 310)
-            self.draw_text("S", 15, (self.HEIGHT+self.WIDTH)/2, 340)
-            self.draw_text("BACK TO MENU", 15, (self.HEIGHT+self.WIDTH)/2, 550)
-            self.draw_text("BACKSPACE", 15, (self.HEIGHT+self.WIDTH)/2, 580)
+            self.draw_sudoku_command_card()
             self.window.blit(self.display, (0, 0))
             pygame.display.update()
             self.reset_keys()
@@ -226,8 +209,11 @@ class SudokuGame:
         self.NUM_9_KEY = False
         self.REMOVE_KEY = False
 
-    def draw_text(self, text, size, x, y, align='center'):
-        font = pygame.font.Font(self.menu_font, size)
+    def draw_text(self, text, size, x, y, align='center', font=None):
+        if font is None:
+            font = pygame.font.Font(self.menu_font, size)
+        else:
+            font = pygame.font.Font(font, size)
         text_surface = font.render(text, True, self.BLACK)
         text_rect = text_surface.get_rect()
         if align == 'center':
@@ -275,3 +261,19 @@ class SudokuGame:
                 if self.solver.is_selected(row, col):
                     pygame.draw.rect(self.display, color,
                                      (x, y, gap+1, gap+1), thickness)
+
+    def draw_sudoku_command_card(self):
+        self.draw_text("Time", 18, (self.HEIGHT+self.WIDTH)/2, 15)
+        self.draw_text(self.solver.get_solving_time(), 20,
+                       (self.HEIGHT+self.WIDTH)/2, 40, font=self.sudoku_font)
+        self.draw_text("COMMANDS", 20, (self.HEIGHT+self.WIDTH)/2, 100)
+        self.draw_text("MOVE", 15, (self.HEIGHT+self.WIDTH)/2, 150)
+        self.draw_text("ARROW KEYS", 15, (self.HEIGHT+self.WIDTH)/2, 180)
+        self.draw_text("INSERT MODE", 15, (self.HEIGHT+self.WIDTH)/2, 230)
+        self.draw_text("ENTER", 15, (self.HEIGHT+self.WIDTH)/2, 260)
+        self.draw_text("REMOVE NUM", 15, (self.HEIGHT+self.WIDTH)/2, 310)
+        self.draw_text("DEL", 15, (self.HEIGHT+self.WIDTH)/2, 340)
+        self.draw_text("SUBMIT", 15, (self.HEIGHT+self.WIDTH)/2, 390)
+        self.draw_text("S", 15, (self.HEIGHT+self.WIDTH)/2, 420)
+        self.draw_text("BACK TO MENU", 15, (self.HEIGHT+self.WIDTH)/2, 550)
+        self.draw_text("BACKSPACE", 15, (self.HEIGHT+self.WIDTH)/2, 580)

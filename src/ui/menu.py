@@ -174,7 +174,7 @@ class MainMenu(Menu):
 class DifficultyMenu(Menu):
     def __init__(self, game):
         super().__init__(game)
-        self.state = 'Easy'
+        self.state = 'easy'
         self.easy_x, self.easy_y = self.MID_W, self.MID_H + 100
         self.medium_x, self.medium_y = self.MID_W, self.MID_H + 150
         self.hard_x, self.hard_y = self.MID_W, self.MID_H + 200
@@ -202,36 +202,86 @@ class DifficultyMenu(Menu):
             self.game.current_menu = self.game.main_menu
             self.run_display = False
         elif self.game.DOWN_KEY:
-            if self.state == 'Easy':
+            if self.state == 'easy':
                 self.cursor_rect.midtop = (
                     self.medium_x + self.offset, self.medium_y)
-                self.state = 'Medium'
-            elif self.state == 'Medium':
+                self.state = 'medium'
+            elif self.state == 'medium':
                 self.cursor_rect.midtop = (
                     self.hard_x + self.offset, self.hard_y)
-                self.state = 'Hard'
-            elif self.state == 'Hard':
+                self.state = 'hard'
+            elif self.state == 'hard':
                 self.cursor_rect.midtop = (
                     self.easy_x + self.offset, self.easy_y)
-                self.state = 'Easy'
+                self.state = 'easy'
         elif self.game.UP_KEY:
-            if self.state == 'Easy':
+            if self.state == 'easy':
                 self.cursor_rect.midtop = (
                     self.hard_x + self.offset, self.hard_y)
-                self.state = 'Hard'
-            elif self.state == 'Medium':
+                self.state = 'hard'
+            elif self.state == 'medium':
                 self.cursor_rect.midtop = (
                     self.easy_x + self.offset, self.easy_y)
-                self.state = 'Easy'
-            elif self.state == 'Hard':
+                self.state = 'easy'
+            elif self.state == 'hard':
                 self.cursor_rect.midtop = (
                     self.medium_x + self.offset, self.medium_y)
-                self.state = 'Medium'
+                self.state = 'medium'
         elif self.game.START_KEY:
-            # TO-DO: Go to the sudoku puzzle list
-            # Currently just opens a predetermined sudoku puzzle
             self.run_display = False
+            self.game.current_menu = SudokuMenu(self.game, self.state)
+
+
+class SudokuMenu(Menu):
+    def __init__(self, game, difficulty):
+        super().__init__(game)
+        self.state = 0
+        self.sudokus = self.game.solver.get_sudokus_by_difficulty(
+            difficulty)
+        self.new_user_x, self.new_user_y = self.MID_W, self.MID_H+100
+        self.cursor_rect.midtop = (
+            self.new_user_x + self.offset, self.new_user_y)
+
+    def display_menu(self):
+        self.run_display = True
+        while self.run_display:
+            self.game.check_events()
+            self.check_input()
+            self.game.display.fill(self.game.BEIGE)
+            self.game.draw_text('Choose sudoku', 35,
+                                self.MID_W, self.MID_H - 200)
+            self.draw_logo()
+            self.draw_sudokus()
+            self.draw_cursor()
+            self.blit_screen()
+
+    def move_cursor(self):
+        if self.game.DOWN_KEY:
+            self.state += 1
+            if self.state >= len(self.sudokus):
+                self.state = 0
+        if self.game.UP_KEY:
+            self.state -= 1
+            if self.state < 0:
+                self.state = len(self.sudokus)-1
+
+        self.cursor_rect.midtop = (
+            self.MID_W + self.offset, self.MID_H + 110 + 50*self.state)
+
+    def draw_sudokus(self):
+        for i, sudoku in enumerate(self.sudokus):
+            self.game.draw_text(f'{sudoku.difficulty} {i+1}', 25,
+                                self.MID_W, self.MID_H + 110 + 50*i)
+
+    def check_input(self):
+        self.move_cursor()
+        if self.game.START_KEY:
+            self.run_display = False
+            self.game.solver.set_sudoku_solver(self.sudokus[self.state])
             self.game.solving = True
+        elif self.game.BACK_KEY:
+            self.run_display = False
+            self.game.current_menu = self.game.difficulty_menu
 
 
 class CreditsMenu(Menu):
