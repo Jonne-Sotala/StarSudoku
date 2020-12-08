@@ -8,4 +8,5 @@
 |  23.11. |  1h  |  pylint ja rakennetta muokattu |
 |  24.11. |  4h  |   sudokun ratkaisu ominaisuus  |
 |  02.12. |  5h  |  kirjautumisominaisuus lisatty |
+|  08.12. |  5h  |  sudokujen tallennus lisatty   |
 |   Yht.  |  20h |                                |
