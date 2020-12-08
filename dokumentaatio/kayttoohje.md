@@ -8,16 +8,18 @@ Sovelluksen valikoiden välillä voi liikkua nuolinäppäimillä. Alavalikkoon p
 
 Sovellus käynnistyy kirjautumisnäkymään. Aluksi käyttäjän tulee tehdä uusi käyttäjä: 
 
-![](.kuvat/kayttoohje-uusi-kayttaja.png)
+![](./kuvat/kayttoohje-uusi-kayttaja.png)
 
 Sitten valikkoon ilmestyy uusi käyttäjä ja sen valitsemalla päästään päävalikkoon:
 
-![](.kuvat/kayttoohje-paavalikko.png)
+![](./kuvat/kayttoohje-paavalikko.png)
+
+## Sudokujen ratkaiseminen
 
 Päävalikosta on kehitetty vasta ratkaisutoiminnallisuus, joten jos käyttäjä menee valitsemaan sudokun, niin hän lopulta pääsee sudokun ratkaisuun: 
 
-![](.kuvat/kayttoohje-sudokun-ratkaisu.png)
+![](./kuvat/kayttoohje-sudokun-ratkaisu.png)
 
 Oikealle olevia ohjeita noudattamalla voidaan ratkaista sudokua: 
 
-![](.kuvat/kayttoohje-sudokua-ratkaistaan.png)
+![](./kuvat/kayttoohje-sudokua-ratkaistaan.png)
