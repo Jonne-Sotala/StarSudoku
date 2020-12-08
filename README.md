@@ -2,7 +2,12 @@
 
 ## Projektin tila
 
-Tällä hetkellä sovelluksessa on kirjautumisnäkymä, jossa voi kirjautua, luoda käyttäjän ja poistaa käyttäjiä. Lisäksi on valikot, joita navigoimalla pääsee ratkaisemaan yhtä sudokua. Vielä kuitenkaan vastausta ei pysty palauttamaan ja sudoku on ennaltamäärätty ja sitä ei pysty vaihtamaan. 
+Tällä hetkellä sovelluksessa on kirjautumisnäkymä, jossa voi kirjautua, luoda käyttäjän ja poistaa käyttäjiä. Lisäksi on valikot, joita navigoimalla pääsee valitsemaan eri sudokuja ja ratkaisemaan niitä. Ohjelma myös tarkistaa käyttäjän ratkaisut. 
+
+## Julkaisut
+
+- [Viikko 5](https://github.com/Jonne-Sotala/ot-harjoitustyo/releases/tag/viikko5-hotfix)
+- [Viikko 6](https://github.com/Jonne-Sotala/ot-harjoitustyo/releases/tag/viikko6)
 
 ## Dokumentaatio
 
@@ -66,6 +71,3 @@ Laatutarkastukset voidaan suorittaa komennolla:
 python -m pipenv run lint
 ```
 
-## Releases
-
-[Viikko 5](https://github.com/Jonne-Sotala/ot-harjoitustyo/releases)
