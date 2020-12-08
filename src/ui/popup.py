@@ -42,9 +42,9 @@ class Popup:
 
     def draw_popup(self):
         pygame.draw.rect(self.game.display, self.LIGHTBEIGE,
-                         (200, 200, 400, 200), border_radius=30)
+                         (150, 200, 500, 200), border_radius=30)
         pygame.draw.rect(self.game.display, self.game.BLACK,
-                         (200, 200, 400, 200), 4, border_radius=30)
+                         (150, 200, 500, 200), 4, border_radius=30)
 
     def draw_popup_text(self, message=None, options=None):
         if message is None:

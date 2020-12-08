@@ -23,3 +23,7 @@ Päävalikosta on kehitetty vasta ratkaisutoiminnallisuus, joten jos käyttäjä
 Oikealle olevia ohjeita noudattamalla voidaan ratkaista sudokua: 
 
 ![](./kuvat/kayttoohje-sudokua-ratkaistaan.png)
+
+Kun käyttäjä on täyttänyt sudokun, voi hän tarkastaa vastauksen painamalla `s` eli submittaamalla. 
+
+![](./kuvat/kayttoohje-vastaus-oikein.png)

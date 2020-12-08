@@ -1,6 +1,6 @@
 import pygame
 from ui.menu import LoginMenu, MainMenu, DifficultyMenu, SudokuMenu, CreditsMenu
-from ui.popup import CreateUserPopUp
+from ui.popup import CreateUserPopUp, Popup
 from services.sudoku_solver import SudokuSolver
 from services.user_service import UserService
 
@@ -25,6 +25,7 @@ class SudokuGame:
         self.RIGHT_KEY = False
         self.YES_KEY = False
         self.NO_KEY = False
+        self.SUBMIT_KEY = False
         self.NUM_1_KEY = False
         self.NUM_2_KEY = False
         self.NUM_3_KEY = False
@@ -145,6 +146,20 @@ class SudokuGame:
             self.solver.current_col += 1
         elif self.REMOVE_KEY:
             self.solver.remove_current_value()
+        elif self.SUBMIT_KEY:
+            correct = self.solver.check_answer()
+            if correct:
+                Popup(self, self.current_menu, "Correct",
+                      "press y to go menus else n").display_menu()
+                if self.confirm:
+                    self.solving = False
+                self.confirm = False
+            else:
+                Popup(self, self.current_menu, "Incorrect",
+                      "press y to continue else n").display_menu()
+                if not self.confirm:
+                    self.solving = False
+                self.confirm = False
 
     def check_events(self):
         for event in pygame.event.get():
@@ -168,6 +183,8 @@ class SudokuGame:
                     self.YES_KEY = True
                 if event.key == pygame.K_n:
                     self.NO_KEY = True
+                if event.key == pygame.K_s:
+                    self.SUBMIT_KEY = True
                 if event.key == pygame.K_1:
                     self.NUM_1_KEY = True
                 if event.key == pygame.K_2:
@@ -198,6 +215,7 @@ class SudokuGame:
         self.RIGHT_KEY = False
         self.YES_KEY = False
         self.NO_KEY = False
+        self.SUBMIT_KEY = False
         self.NUM_1_KEY = False
         self.NUM_2_KEY = False
         self.NUM_3_KEY = False
