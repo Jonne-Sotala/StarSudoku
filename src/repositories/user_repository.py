@@ -3,6 +3,12 @@ from build.database_connection import DatabaseConnection
 
 
 class UserRepository:
+    """Class that manages the users in the database
+
+    Attributes:
+        connection: A connection object that connects to the sqlite database.
+    """
+
     def __init__(self, connection=None):
         if connection is None:
             self.connection = DatabaseConnection().connect_to_database()
@@ -23,6 +29,11 @@ class UserRepository:
     def delete_by_id(self, user_id):
         cursor = self.connection.cursor()
         cursor.execute("DELETE FROM user WHERE id = ?;", (user_id,))
+        self.connection.commit()
+
+    def delete_all(self):
+        cursor = self.connection.cursor()
+        cursor.execute("DELETE FROM user;")
         self.connection.commit()
 
     def find_all(self):

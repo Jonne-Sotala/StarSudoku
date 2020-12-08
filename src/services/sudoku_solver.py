@@ -3,6 +3,16 @@ import time
 
 
 class SudokuSolver:
+    """Class that takes care of sudoku solving in the application.
+
+    Attributes:
+        start_time: A float number that represents the starting time for starting the puzzle.
+        sudoku: A sudoku object that stores the information of the current sudoku puzzle.
+        state: A 2-dimensional list that stores the sudoku puzzle values in an easier way.
+        current_row: An integer that tells the current row selected by user
+        current_col: An integer that tells the current column selected by user
+    """
+
     def __init__(self, sudoku=None):
         self.start_time = None
         self.sudoku = sudoku

@@ -3,6 +3,12 @@ from build.database_connection import DatabaseConnection
 
 
 class SudokuRepository:
+    """Class that manages the sudokus in the database
+
+    Attributes:
+        connection: A connection object that connects to the sqlite database.
+    """
+
     def __init__(self, connection=None):
         if connection is None:
             self.connection = DatabaseConnection().connect_to_database()
@@ -24,6 +30,11 @@ class SudokuRepository:
     def delete_by_id(self, sudoku_id):
         cursor = self.connection.cursor()
         cursor.execute("DELETE FROM sudoku WHERE id = ?;", (sudoku_id,))
+        self.connection.commit()
+
+    def delete_all(self):
+        cursor = self.connection.cursor()
+        cursor.execute("DELETE FROM sudoku;")
         self.connection.commit()
 
     def find_all(self):

@@ -46,7 +46,7 @@ def create_all_tables(connection):
 
 
 def add_sudokus_to_table(connection):
-    sudoku_repo = SudokuRepository()
+    sudoku_repo = SudokuRepository(connection)
     sudokus = []
 
     sudokus.append(Sudoku('800930002009000040702100960200000090060000070070006005027008406030000500500062008',
@@ -68,8 +68,8 @@ def add_sudokus_to_table(connection):
         sudoku_repo.create(sudoku)
 
 
-def initialize_database():
-    db_conn = DatabaseConnection()
+def initialize_database(test=False):
+    db_conn = DatabaseConnection(test)
     connection = db_conn.connect_to_database()
 
     drop_all_tables(connection)

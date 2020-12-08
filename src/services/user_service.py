@@ -3,6 +3,13 @@ from repositories.user_repository import UserRepository
 
 
 class UserService:
+    """Class that the application uses to store information about users and connect to the database.
+
+    Attributes:
+        current_user: A user object that tells the current logged in user.
+        user_repo: A UserRepository object that enables this class to connect to the database.
+    """
+
     def __init__(self):
         self.current_user = None
         self.user_repo = UserRepository()
