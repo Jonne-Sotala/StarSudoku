@@ -2,7 +2,7 @@
 
 ## Navigointi
 
-Sovelluksen valikoiden välillä voi liikkua nuolinäppäimillä. Alavalikkoon pääsee painamalla ENTER-näppäintä ja takaisin pääsee painamalla BACKSPACE-näppäintä. Sudokun ratkaisu tilassa ohjeet näkyvät oikealla puolella ikkunaa. 
+Sovelluksen valikoiden välillä voi liikkua nuolinäppäimillä. Alavalikkoon pääsee painamalla `ENTER` ja takaisin pääsee painamalla `BACKSPACE`. Sudokun ratkaisu tilassa ohjeet näkyvät oikealla puolella ikkunaa. 
 
 ## Kirjautuminen
 
@@ -30,6 +30,6 @@ Kun käyttäjä on täyttänyt sudokun, voi hän tarkastaa vastauksen painamalla
 
 ## Ratkaisu historia katsominen
 
-Käyttäjä voi päästä päävalikosta historia näkymään. Siellä näkyy 4 viimeisintä ratkaisua, joista ylimmäinen on viimeisin. Vihreä väri tarkoittaa, että ratkaisu oli oikein ja punainen että ratkaisu oli väärin. Painamalla enter-näppäintä voidaan nähdä vähäsen lisätietoa ratkaisusta (ratkaisu aika)
+Käyttäjä voi päästä päävalikosta historia näkymään. Siellä näkyy 4 viimeisintä ratkaisua, joista ylimmäinen on viimeisin. Vihreä väri tarkoittaa, että ratkaisu oli oikein ja punainen että ratkaisu oli väärin. Painamalla `ENTER` voidaan nähdä vähäsen lisätietoa ratkaisusta (ratkaisu aika)
 
 ![](./kuvat/kayttoohje-historia.png)
