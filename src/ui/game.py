@@ -53,7 +53,7 @@ class SudokuGame:
         self.window = pygame.display.set_mode((self.WIDTH, self.HEIGHT))
 
         # Caption
-        caption = 'Sudoku'
+        caption = 'StarSudoku'
         pygame.display.set_caption(caption)
 
         # Fonts
@@ -155,7 +155,7 @@ class SudokuGame:
             if self.solver.is_filled():
                 correct = self.solver.check_answer()
                 self.solutions.save_solution(
-                    self.users.current_user, self.solver.sudoku, correct, self.solver.get_solving_time_in_seconds())
+                    self.users.current_user.id, self.solver.sudoku.id, correct, self.solver.get_solving_time_in_seconds())
                 if correct:
                     Popup(self, self.current_menu, "Correct",
                           "press y to go menus else n").display_menu()

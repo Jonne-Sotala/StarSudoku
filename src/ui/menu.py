@@ -44,7 +44,7 @@ class LoginMenu(Menu):
             self.game.check_events()
             self.check_input()
             self.game.display.fill(self.game.BEIGE)
-            self.game.draw_text('Welcome', 35,
+            self.game.draw_text('StarSudoku', 35,
                                 self.MID_W, self.MID_H - 200)
             self.draw_logo()
             self.game.draw_text('Create new user', 25,
