@@ -4,8 +4,9 @@ StarSudoku on sudokupeli. Sovellukseen voi tehdä käyttäjätunnuksen ja sitten
 
 ## Julkaisut
 
-- [Viikko 5 ](https://github.com/Jonne-Sotala/ot-harjoitustyo/releases/tag/viikko5-hotfix)
+- [StarSudoku v1.0](https://github.com/Jonne-Sotala/StarSudoku/releases/tag/v1.0)
 - [Viikko 6](https://github.com/Jonne-Sotala/ot-harjoitustyo/releases/tag/viikko6)
+- [Viikko 5 ](https://github.com/Jonne-Sotala/ot-harjoitustyo/releases/tag/viikko5-hotfix)
 
 ## Dokumentaatio
 
