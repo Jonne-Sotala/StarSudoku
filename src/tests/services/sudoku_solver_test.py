@@ -1,15 +1,19 @@
 import unittest
+from build.database_connection import DatabaseConnection
 from entities.sudoku import Sudoku
+from repositories.sudoku_repository import SudokuRepository
 from services.sudoku_solver import SudokuSolver
 
 
 class TestSudokuSolver(unittest.TestCase):
     def setUp(self):
+        connection = DatabaseConnection(test=True).connect_to_database()
+        sudoku_repo = SudokuRepository(connection)
         self.sudoku = Sudoku('Easy 1',
                              '800930002009000040702100960200000090060000070070006005027008406030000500500062008',
                              '846937152319625847752184963285713694463859271971246385127598436638471529594362718',
                              'easy')
-        self.solver = SudokuSolver(self.sudoku)
+        self.solver = SudokuSolver(self.sudoku, sudoku_repo)
 
     def test_get_value_at_gets_correct_value1(self):
         row, col = 3, 3
@@ -96,3 +100,16 @@ class TestSudokuSolver(unittest.TestCase):
     def test_get_answer_fills_sudoku_with_right_answer(self):
         self.solver.get_answer()
         self.assertTrue(self.solver.check_answer())
+
+    def test_is_filled_returns_false_when_not_filled(self):
+        self.assertFalse(self.solver.is_filled())
+
+    def test_is_filled_returns_true_when_filled(self):
+        self.solver.get_answer()
+        self.assertTrue(self.solver.is_filled())
+
+    def test_get_solving_time(self):
+        time = 60
+        self.assertEqual('60', self.solver.get_solving_time(time))
+        time = 125
+        self.assertEqual('2:05', self.solver.get_solving_time(time))

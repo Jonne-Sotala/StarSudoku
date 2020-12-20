@@ -3,10 +3,6 @@ from build.settings import ROOT_DIR
 from build.initialize_database import initialize_database
 
 
-def build():
+def pytest_configure():
     os.makedirs(os.path.join(ROOT_DIR, 'data'), exist_ok=True)
-    initialize_database()
-
-
-if __name__ == "__main__":
-    build()
+    initialize_database(test=True)

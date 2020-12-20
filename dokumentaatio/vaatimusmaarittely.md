@@ -2,7 +2,7 @@
 
 ## Sovelluksen tarkoitus
 
-Sovellus on sudokupeli. Sovellukseen voi tehdä käyttäjätunnuksen ja sitten sovelluksen käyttäjä voi ratkaista erilaisia sudokuongelmia ja sovellus ajastaa ratkaisut ja kirjaa ratkaisut muistiin käyttäjäkohtaisesti.  
+Sovellus on sudokupeli. Sovellukseen voi tehdä käyttäjätunnuksen ja sitten sovelluksen käyttäjä voi ratkaista erilaisia sudokuongelmia. Sovellus ajastaa ratkaisut ja kirjaa ratkaisut muistiin käyttäjäkohtaisesti.  
 
 ## Käyttäjät
 

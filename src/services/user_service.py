@@ -10,9 +10,12 @@ class UserService:
         user_repo: A UserRepository object that enables this class to connect to the database.
     """
 
-    def __init__(self):
+    def __init__(self, user_repo=None):
         self.current_user = None
-        self.user_repo = UserRepository()
+        if user_repo is None:
+            self.user_repo = UserRepository()
+        else:
+            self.user_repo = user_repo
 
     def create_user(self, username):
         self.user_repo.create(User(username))

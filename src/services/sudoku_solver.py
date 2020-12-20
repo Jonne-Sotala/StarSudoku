@@ -13,7 +13,11 @@ class SudokuSolver:
         current_col: An integer that tells the current column selected by user
     """
 
-    def __init__(self, sudoku=None):
+    def __init__(self, sudoku=None, sudoku_repo=None):
+        if sudoku_repo is None:
+            self.sudoku_repo = SudokuRepository()
+        else:
+            self.sudoku_repo = sudoku_repo
         self.start_time = None
         self.sudoku = sudoku
         if sudoku:
@@ -24,20 +28,20 @@ class SudokuSolver:
         self.current_col = 4
 
     def get_sudokus_by_difficulty(self, difficulty):
-        sudoku_repo = SudokuRepository()
-        return sudoku_repo.find_by_difficulty(difficulty)
+        return self.sudoku_repo.find_by_difficulty(difficulty)
 
     def set_sudoku_solver(self, sudoku):
         self.start_time = time.time()
         self.sudoku = sudoku
         self.state = self.parse_str_to_sudoku_state(sudoku.initial_setup)
 
-    def get_solving_time(self):
-        solving_time = round(time.time() - self.start_time)
-        if solving_time <= 60:
-            return str(solving_time)
-        seconds = solving_time % 60
-        minutes = solving_time // 60
+    def get_solving_time(self, solving_time_in_seconds=None):
+        if solving_time_in_seconds is None:
+            solving_time_in_seconds = self.get_solving_time_in_seconds()
+        if solving_time_in_seconds <= 60:
+            return str(solving_time_in_seconds)
+        seconds = solving_time_in_seconds % 60
+        minutes = solving_time_in_seconds // 60
         return f'{minutes}:{seconds:0=2d}'
 
     def get_solving_time_in_seconds(self):

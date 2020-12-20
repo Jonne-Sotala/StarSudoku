@@ -10,4 +10,5 @@
 |  02.12. |  5h  |  kirjautumisominaisuus lisatty |
 |  08.12. |  5h  |  sudokujen tallennus lisatty   |
 |  20.12. |  3h  |  ratkaisujen kirjanpito tehty  |
-|   Yht.  |  20h |                                |
+|  20.12. |  3h  |      testien viimeistely       |
+|   Yht.  |  31h |                                |

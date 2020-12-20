@@ -16,6 +16,8 @@ class SolutionRepository:
             self.connection = DatabaseConnection().connect_to_database()
         else:
             self.connection = connection
+        self.user_repo = UserRepository(self.connection)
+        self.sudoku_repo = SudokuRepository(self.connection)
 
     def create(self, solution):
         cursor = self.connection.cursor()
@@ -23,6 +25,18 @@ class SolutionRepository:
             "INSERT INTO solution (user_id, sudoku_id, is_correct, time) VALUES (?, ?, ?, ?)",
             (solution.user.id, solution.sudoku.id, solution.is_correct, solution.time))
         self.connection.commit()
+
+    def delete_all(self):
+        cursor = self.connection.cursor()
+        cursor.execute("DELETE FROM solution;")
+        self.connection.commit()
+
+    def find_all(self):
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT * FROM solution;")
+        rows = cursor.fetchall()
+        solutions = list(map(self.row_to_solution, rows))
+        return solutions
 
     def find_last_4_solutions_by_user(self, user):
         cursor = self.connection.cursor()
@@ -40,6 +54,6 @@ class SolutionRepository:
         return self.row_to_solution(row)
 
     def row_to_solution(self, row):
-        user = UserRepository().find_by_id(row['user_id'])
-        sudoku = SudokuRepository().find_by_id(row['sudoku_id'])
+        user = self.user_repo.find_by_id(row['user_id'])
+        sudoku = self.sudoku_repo.find_by_id(row['sudoku_id'])
         return Solution(user, sudoku, row['is_correct'], row['time'], row['id'])
