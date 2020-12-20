@@ -161,7 +161,12 @@ class MainMenu(Menu):
             if self.state == 'Choose':
                 self.game.current_menu = self.game.difficulty_menu
             elif self.state == 'History':
-                pass
+                self.game.history_menu.update_solutions()
+                if len(self.game.history_menu.solutions) == 0:
+                    self.game.current_menu = Popup(
+                        self.game, self.game.current_menu, "No history", "Go solve some puzzles", True)
+                else:
+                    self.game.current_menu = self.game.history_menu
             elif self.state == 'Credits':
                 self.game.current_menu = self.game.credits_menu
             self.run_display = False
@@ -270,7 +275,7 @@ class SudokuMenu(Menu):
 
     def draw_sudokus(self):
         for i, sudoku in enumerate(self.sudokus):
-            self.game.draw_text(f'{sudoku.difficulty} {i+1}', 25,
+            self.game.draw_text(f'{sudoku.name}', 25,
                                 self.MID_W, self.MID_H + 110 + 50*i)
 
     def check_input(self):
@@ -282,6 +287,73 @@ class SudokuMenu(Menu):
         elif self.game.BACK_KEY:
             self.run_display = False
             self.game.current_menu = self.game.difficulty_menu
+
+
+class HistoryMenu(Menu):
+    def __init__(self, game):
+        super().__init__(game)
+        self.state = 0
+        self.solutions = []
+        self.solution_x, self.solution_y = self.MID_W, self.MID_H+100
+        self.cursor_rect.midtop = (
+            self.solution_x + self.offset, self.solution_y)
+
+    def update_solutions(self):
+        self.solutions = self.game.solutions.get_last_4_solutions_by_user(
+            self.game.users.current_user)
+
+    def display_menu(self):
+        self.run_display = True
+        self.state = 0
+        while self.run_display:
+            self.game.check_events()
+            self.check_input()
+            self.game.display.fill(self.game.BEIGE)
+            self.game.draw_text('Last 4 submits', 35,
+                                self.MID_W, self.MID_H - 200)
+            self.draw_logo()
+            self.draw_solutions()
+            self.draw_cursor()
+            self.blit_screen()
+
+    def move_cursor(self):
+        if self.game.DOWN_KEY:
+            self.state += 1
+            if self.state >= len(self.solutions):
+                self.state = 0
+        if self.game.UP_KEY:
+            self.state -= 1
+            if self.state < 0:
+                self.state = len(self.solutions)-1
+
+        self.cursor_rect.midtop = (
+            self.MID_W + self.offset, self.MID_H + 110 + 50*self.state)
+
+    def draw_solutions(self):
+        for i, solution in enumerate(self.solutions):
+            if solution.is_correct:
+                color = self.game.GREEN
+            else:
+                color = self.game.RED
+            self.game.draw_text(f'{solution.sudoku.name}', 25,
+                                self.MID_W, self.MID_H + 110 + 50*i, color=color)
+
+    def check_input(self):
+        self.move_cursor()
+        if self.game.START_KEY:
+            self.run_display = False
+            solution = self.solutions[self.state]
+            correctness = 'correct' if solution.is_correct else 'incorrect'
+            self.game.current_menu = Popup(
+                self.game,
+                self.game.current_menu,
+                f"Solution was {correctness}",
+                f"Took {solution.time} seconds",
+                True
+            )
+        elif self.game.BACK_KEY:
+            self.run_display = False
+            self.game.current_menu = self.game.main_menu
 
 
 class CreditsMenu(Menu):

@@ -40,6 +40,10 @@ class SudokuSolver:
         minutes = solving_time // 60
         return f'{minutes}:{seconds:0=2d}'
 
+    def get_solving_time_in_seconds(self):
+        solving_time = round(time.time() - self.start_time)
+        return solving_time
+
     def get_value_at(self, row, col):
         return self.state[row][col]
 
@@ -79,6 +83,13 @@ class SudokuSolver:
         for row in range(9):
             for col in range(9):
                 self.state[row][col] = self.sudoku.answer[9*row + col]
+
+    def is_filled(self):
+        for row in range(9):
+            for col in range(9):
+                if self.state[row][col] == '0':
+                    return False
+        return True
 
     def parse_str_to_sudoku_state(self, string):
         sudoku = []

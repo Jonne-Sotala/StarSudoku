@@ -18,8 +18,8 @@ class SudokuRepository:
     def create(self, sudoku):
         cursor = self.connection.cursor()
         cursor.execute(
-            "INSERT INTO sudoku (initial_setup, answer, difficulty) VALUES (?, ?, ?);",
-            (sudoku.initial_setup, sudoku.answer, sudoku.difficulty))
+            "INSERT INTO sudoku (name, initial_setup, answer, difficulty) VALUES (?, ?, ?, ?);",
+            (sudoku.name, sudoku.initial_setup, sudoku.answer, sudoku.difficulty))
         self.connection.commit()
 
     def delete(self, sudoku):
@@ -59,5 +59,5 @@ class SudokuRepository:
         return self.row_to_sudoku(row)
 
     def row_to_sudoku(self, row):
-        return Sudoku(row['initial_setup'], row['answer'],
+        return Sudoku(row['name'], row['initial_setup'], row['answer'],
                       row['difficulty'], row['id'])

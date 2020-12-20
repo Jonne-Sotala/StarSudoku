@@ -9,11 +9,9 @@ class User:
 
     def __init__(self, username, id=None):
         """Constructor that initiates a new user object"""
-
         self.id = id
         self.username = username
 
     def __repr__(self):
         """Defines the string representation of user object"""
-
         return self.username

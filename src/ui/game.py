@@ -1,5 +1,6 @@
 import pygame
-from ui.menu import LoginMenu, MainMenu, DifficultyMenu, SudokuMenu, CreditsMenu
+from services.solution_service import SolutionService
+from ui.menu import HistoryMenu, LoginMenu, MainMenu, DifficultyMenu, SudokuMenu, CreditsMenu
 from ui.popup import CreateUserPopUp, Popup
 from services.sudoku_solver import SudokuSolver
 from services.user_service import UserService
@@ -16,7 +17,7 @@ class SudokuGame:
         self.insert_mode = False
         self.move_mode = True
 
-        # KEYS
+        # Keys
         self.START_KEY = False
         self.BACK_KEY = False
         self.UP_KEY = False
@@ -26,6 +27,7 @@ class SudokuGame:
         self.YES_KEY = False
         self.NO_KEY = False
         self.SUBMIT_KEY = False
+        self.REMOVE_KEY = False
         self.NUM_1_KEY = False
         self.NUM_2_KEY = False
         self.NUM_3_KEY = False
@@ -35,8 +37,6 @@ class SudokuGame:
         self.NUM_7_KEY = False
         self.NUM_8_KEY = False
         self.NUM_9_KEY = False
-        self.REMOVE_KEY = False
-        self.SUBMIT_KEY = False
 
         # Define contant variables
         self.WIDTH = 800
@@ -46,6 +46,7 @@ class SudokuGame:
         self.GREY = (96, 96, 96)
         self.GREY_BLUE = (102, 122, 128)
         self.GREEN = (0, 128, 0)
+        self.RED = (128, 0, 0)
 
         # Surface
         self.display = pygame.Surface((self.WIDTH, self.HEIGHT))
@@ -55,12 +56,13 @@ class SudokuGame:
         caption = 'Sudoku'
         pygame.display.set_caption(caption)
 
-        # Font
+        # Fonts
         self.menu_font = 'resources/fonts/8-BIT WONDER.TTF'
         self.sudoku_font = 'resources/fonts/comicsans.ttf'
 
         # Services
         self.users = UserService()
+        self.solutions = SolutionService()
         self.solver = SudokuSolver()
 
         # Menus
@@ -69,6 +71,7 @@ class SudokuGame:
         self.main_menu = MainMenu(self)
         self.difficulty_menu = DifficultyMenu(self)
         self.credits_menu = CreditsMenu(self)
+        self.history_menu = HistoryMenu(self)
         self.current_menu = self.login_menu
 
         # Confirm for popups
@@ -146,20 +149,28 @@ class SudokuGame:
             self.solver.current_col += 1
         elif self.REMOVE_KEY:
             self.solver.remove_current_value()
+        elif self.YES_KEY:
+            self.solver.get_answer()
         elif self.SUBMIT_KEY:
-            correct = self.solver.check_answer()
-            if correct:
-                Popup(self, self.current_menu, "Correct",
-                      "press y to go menus else n").display_menu()
-                if self.confirm:
-                    self.solving = False
-                self.confirm = False
+            if self.solver.is_filled():
+                correct = self.solver.check_answer()
+                self.solutions.save_solution(
+                    self.users.current_user, self.solver.sudoku, correct, self.solver.get_solving_time_in_seconds())
+                if correct:
+                    Popup(self, self.current_menu, "Correct",
+                          "press y to go menus else n").display_menu()
+                    if self.confirm:
+                        self.solving = False
+                    self.confirm = False
+                else:
+                    Popup(self, self.current_menu, "Incorrect",
+                          "press y to continue else n").display_menu()
+                    if not self.confirm:
+                        self.solving = False
+                    self.confirm = False
             else:
-                Popup(self, self.current_menu, "Incorrect",
-                      "press y to continue else n").display_menu()
-                if not self.confirm:
-                    self.solving = False
-                self.confirm = False
+                Popup(self, self.current_menu, "Fill the sudoku first",
+                      "Press enter to continue", True).display_menu()
 
     def check_events(self):
         for event in pygame.event.get():
@@ -227,12 +238,14 @@ class SudokuGame:
         self.NUM_9_KEY = False
         self.REMOVE_KEY = False
 
-    def draw_text(self, text, size, x, y, align='center', font=None):
+    def draw_text(self, text, size, x, y, align='center', font=None, color=None):
+        if color is None:
+            color = self.BLACK
         if font is None:
             font = pygame.font.Font(self.menu_font, size)
         else:
             font = pygame.font.Font(font, size)
-        text_surface = font.render(text, True, self.BLACK)
+        text_surface = font.render(text, True, color)
         text_rect = text_surface.get_rect()
         if align == 'center':
             text_rect.center = (x, y)

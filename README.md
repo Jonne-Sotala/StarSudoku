@@ -1,8 +1,8 @@
-# Sudoku sovellus
+# StarSudoku
 
 ## Projektin tila
 
-Tällä hetkellä sovelluksessa on kirjautumisnäkymä, jossa voi kirjautua, luoda käyttäjän ja poistaa käyttäjiä. Lisäksi on valikot, joita navigoimalla pääsee valitsemaan eri sudokuja ja ratkaisemaan niitä. Ohjelma myös tarkistaa käyttäjän ratkaisut. 
+Tällä hetkellä sovelluksessa on kirjautumisnäkymä, jossa voi kirjautua, luoda käyttäjän ja poistaa käyttäjiä. Lisäksi on valikot, joita navigoimalla pääsee valitsemaan eri sudokuja ja ratkaisemaan niitä. Ohjelma myös tarkistaa käyttäjän ratkaisut sekä tallentaa historiaan.  
 
 ## Julkaisut
 

@@ -2,19 +2,18 @@
 
 ## Sovelluksen tarkoitus
 
-Sovellus on tietynlainen sudokupeli. Sovelluksen käyttäjät voivat ratkaista erilaisia sudokuongelmia ja sovellus seuraa heidän suorituksia ja pisteyttää ne. Lisäksi sovelluksessa tulee mahdollisesti olemaan ratkaisija, jolta voi pyytaa apua sudokun ratkaisemiseen. 
+Sovellus on sudokupeli. Sovellukseen voi tehdä käyttäjätunnuksen. Sitten sovelluksen käyttäjä voi ratkaista erilaisia sudokuongelmia ja sovellus ajastaa ratkaisut ja kirjaa ratkaisut muistiin käyttäjäkohtaisesti.  
 
 ## Käyttäjät
 
-Sovelluksella tulee olemaan vain yhdenlaisen käyttäjätyypin käyttäjiä, jotka voivat pelata ja lisäksi heidän edistymisensä tallennetaan. 
+Sovelluksella tulee olemaan vain yhdenlaisen käyttäjätyypin käyttäjiä, jotka voivat ratkaista sudokuja ja lisäksi heidän edistymisensä tallennetaan. 
 
 ## Käyttöliittymä
 
 - Sovelluksen avautuessa on kirjautumisnäkymä :heavy_check_mark:
-- Kirjauduttuaan käyttäjä näkee valikon, jossa on napit joilla voi menna käyttäjän historiaan sekä napit joilla pääsee eri vaikeusasteisten sudokujen listaan (helpot, keskivaikeat, vaikeat, mahdottomat jne.) :heavy_check_mark:
-- Sudokujen lista näkymassa voi valita sudokun ja alkaa ratkaisemaan sitä :heavy_check_mark:
-- Ratkaisunäkymässa näkyy sudokulauta, siellä on nappi josta voi pyytää ratkaisijalta apua ja voi myös palauttaa oman ratkaisunsa. Siellä on myös kohta mistä nakee kuinka paljon aikaa on kulunut :heavy_check_mark:
-- Ratkaisun palautuksen jälkeen tulisi pisteytysnäkymä, jossa on myös sitten linkit takaisin valikkoihin
+- Kirjauduttuaan käyttäjä näkee valikon, jossa on napit joilla voi mennä käyttäjän historiaan sekä napit joilla pääsee eri vaikeusasteisten sudokujen listaan (helpot, keskivaikeat, vaikeat) :heavy_check_mark:
+- Sudokujen lista näkymässä voi valita sudokun ja alkaa ratkaisemaan sitä :heavy_check_mark:
+- Ratkaisunäkymässa näkyy sudokulauta. Näkymästä voi myös palauttaa oman ratkaisunsa. Lisäksi näkymässä näkee kuinka paljon aikaa on kulunut :heavy_check_mark:
 
 ## Perusversion toiminnallisuus
 
@@ -23,9 +22,10 @@ Sovelluksella tulee olemaan vain yhdenlaisen käyttäjätyypin käyttäjiä, jot
 - Käyttäjä voi ratkaista sovelluksen sudokuita :heavy_check_mark:
 - Sovelluksessa on erilaisia sudokuongelmia, joita voi ratkaista :heavy_check_mark:
 - Sovellus ajastaa käyttäjän ratkaisut :heavy_check_mark:
-- Sovellus pitää kirjaa käyttäjien ratkaisemista sudokuista
+- Sovellus pitää kirjaa käyttäjien ratkaisemista sudokuista :heavy_check_mark:
 
 ## Jatkokehitysideoita
 
+- Hiirituen lisäys näppäimistön lisäksi
 - Ratkaisija, jolta voi kysya neuvoa tai pyytää sen ratkaisemaan sudokun loppuun
 - Sovellukseen voisi lisätä leaderboard ominaisuuden, josta näkisi kuinka hyvin eri käyttäjät ovat ratkaisseet sudokuja

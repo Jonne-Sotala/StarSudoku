@@ -5,7 +5,8 @@ from services.sudoku_solver import SudokuSolver
 
 class TestSudokuSolver(unittest.TestCase):
     def setUp(self):
-        self.sudoku = Sudoku('800930002009000040702100960200000090060000070070006005027008406030000500500062008',
+        self.sudoku = Sudoku('Easy 1',
+                             '800930002009000040702100960200000090060000070070006005027008406030000500500062008',
                              '846937152319625847752184963285713694463859271971246385127598436638471529594362718',
                              'easy')
         self.solver = SudokuSolver(self.sudoku)
