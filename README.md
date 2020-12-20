@@ -1,19 +1,18 @@
 # StarSudoku
 
-## Projektin tila
-
-Tällä hetkellä sovelluksessa on kirjautumisnäkymä, jossa voi kirjautua, luoda käyttäjän ja poistaa käyttäjiä. Lisäksi on valikot, joita navigoimalla pääsee valitsemaan eri sudokuja ja ratkaisemaan niitä. Ohjelma myös tarkistaa käyttäjän ratkaisut sekä tallentaa historiaan.  
+StarSudoku on sudokupeli. Sovellukseen voi tehdä käyttäjätunnuksen ja sitten sovelluksen käyttäjä voi ratkaista erilaisia sudokuongelmia. Tällä hetkellä sudokusovellukseen on valmiiksi ladattuna 9 sudokuongelmaa, joista 3 on helppoja, 3 keskitasoisia ja 3 vaikeita. Sovellus ajastaa ratkaisut ja kirjaa ratkaisut muistiin käyttäjäkohtaisesti. 
 
 ## Julkaisut
 
-- [Viikko 5](https://github.com/Jonne-Sotala/ot-harjoitustyo/releases/tag/viikko5-hotfix)
+- [Viikko 5 ](https://github.com/Jonne-Sotala/ot-harjoitustyo/releases/tag/viikko5-hotfix)
 - [Viikko 6](https://github.com/Jonne-Sotala/ot-harjoitustyo/releases/tag/viikko6)
 
 ## Dokumentaatio
 
-- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
 - [Käyttöohje](./dokumentaatio/kayttoohje.md)
+- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
 - [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
+- [Testausdokumentti](./dokumentaatio/testaus.md)
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 
 ## Asennus
