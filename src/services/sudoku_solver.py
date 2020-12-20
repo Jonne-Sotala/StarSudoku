@@ -14,6 +14,7 @@ class SudokuSolver:
     """
 
     def __init__(self, sudoku=None, sudoku_repo=None):
+        """The contructor that initiates the SudokuSolver object"""
         if sudoku_repo is None:
             self.sudoku_repo = SudokuRepository()
         else:

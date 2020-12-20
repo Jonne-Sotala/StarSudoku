@@ -9,9 +9,16 @@ class SolutionRepository:
 
     Attributes:
         connection: A connection object that connects to the sqlite database.
+        user_repo: A UserRepository object that can get User objects from the database.
+        sudoku_repo A SudokuRepository object that can get Sudoku objects from the database.
     """
 
     def __init__(self, connection=None):
+        """The contructor that initiates the SolutionRepository object
+
+        Args:
+            connection: Optional connection to database (used for testing)
+        """
         if connection is None:
             self.connection = DatabaseConnection().connect_to_database()
         else:
@@ -20,6 +27,7 @@ class SolutionRepository:
         self.sudoku_repo = SudokuRepository(self.connection)
 
     def create(self, solution):
+        """Creates a database entry"""
         cursor = self.connection.cursor()
         cursor.execute(
             "INSERT INTO solution (user_id, sudoku_id, is_correct, time) VALUES (?, ?, ?, ?)",
@@ -27,11 +35,13 @@ class SolutionRepository:
         self.connection.commit()
 
     def delete_all(self):
+        """Deletes all database entries"""
         cursor = self.connection.cursor()
         cursor.execute("DELETE FROM solution;")
         self.connection.commit()
 
     def find_all(self):
+        """Returns all the solutions"""
         cursor = self.connection.cursor()
         cursor.execute("SELECT * FROM solution;")
         rows = cursor.fetchall()
@@ -39,6 +49,7 @@ class SolutionRepository:
         return solutions
 
     def find_last_4_solutions_by_user(self, user):
+        """Returns the last 4 added solutions by a certain users"""
         cursor = self.connection.cursor()
         cursor.execute(
             "SELECT * FROM solution WHERE user_id = ? ORDER BY id DESC LIMIT 4;",
@@ -48,6 +59,7 @@ class SolutionRepository:
         return solutions
 
     def find_by_id(self, solution_id):
+        """Returns a solution with a specific id"""
         cursor = self.connection.cursor()
         cursor.execute("SELECT * FROM solution WHERE id = ?;", (solution_id,))
         row = cursor.fetchone()
