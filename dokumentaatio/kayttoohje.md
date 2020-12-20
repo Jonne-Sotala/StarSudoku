@@ -27,3 +27,9 @@ Oikealle olevia ohjeita noudattamalla voidaan ratkaista sudokua:
 Kun käyttäjä on täyttänyt sudokun, voi hän tarkastaa vastauksen painamalla `s` eli submittaamalla. 
 
 ![](./kuvat/kayttoohje-vastaus-oikein.png)
+
+## Ratkaisu historia katsominen
+
+Käyttäjä voi päästä päävalikosta historia näkymään. Siellä näkyy 4 viimeisintä ratkaisua, joista ylimmäinen on viimeisin. Vihreä väri tarkoittaa, että ratkaisu oli oikein ja punainen että ratkaisu oli väärin. Painamalla enter-näppäintä voidaan nähdä vähäsen lisätietoa ratkaisusta (ratkaisu aika)
+
+![](./kuvat/kayttoohje-historia.png)

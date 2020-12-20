@@ -11,4 +11,5 @@
 |  08.12. |  5h  |  sudokujen tallennus lisatty   |
 |  20.12. |  3h  |  ratkaisujen kirjanpito tehty  |
 |  20.12. |  3h  |      testien viimeistely       |
-|   Yht.  |  31h |                                |
+|  20.12. |  2h  |   dokumentoinnin viimeistely   |
+|   Yht.  |  33h |                                |
